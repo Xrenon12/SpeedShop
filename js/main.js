@@ -95,5 +95,10 @@ $(function(){
 	$('.menu_btn').on('click', function(){
 		$('.menu-mobile_list').toggleClass('menu-mobile_list-active')
 	});
-
+	$('.mobile_click-menu').on('click', function(){
+		$('.catalog_inner aside').toggleClass('right-slide')
+	});
+	$('.product-item_wrapper').on('click', function() {
+		window.location.href = './product-page.html';
+	})
 });
