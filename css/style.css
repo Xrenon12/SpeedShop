@@ -1,13 +1,11 @@
-<script>
-	document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
-</script>
-
-html{
+html {
 	box-sizing: border-box;
 	width: 100%;
 	height: 100%;
 	margin: 0;
 	padding: 0;
+	font-size: 10px;
+	overflow-x: hidden;
 }	
 *, *::before, *::after{
 	box-sizing: inherit;
@@ -33,11 +31,28 @@ body {
 	padding: 0;
 	color: #2f3035;
 	font-family: 'SFProDisplay-Regular', sans-serif;
-	font-size: 20px;
+	font-size: 20px !important;
 	line-height: 24px;
 	font-weight: 400;
 	overflow-x: hidden;
 	min-width: 320px;
+}
+table {
+	table-layout: fixed;
+	border-collapse: collapse;
+	width: 100%;
+	font-size: 20px;
+}
+tr {
+	border-bottom: 1px solid rgb(47 48 53 / 10%);
+}
+th {
+	text-align: start;
+	font-weight: 400;
+}
+.border__bottom {
+	border: 1px solid black;
+	width: 100%;
 }
 .container {
 	max-width: 1200px;
@@ -422,7 +437,7 @@ body {
 	display: flex;
 	padding: 20px;
 	justify-content: space-between;
-	min-width: 280px;
+	min-width: 320px;
 }
 .categories_item:hover {
 	transition: all .3s;
@@ -1286,20 +1301,26 @@ button.catalog_filter-btnline {
 	border-radius: 3px;
 }
 .product-card_price-old {
-	font-size: 30px;		
-	line-height: 36px;
+	font-size: 3rem;		
+	line-height: 3.6rem;
 	opacity: 0.7;
-	background-image: url('../images/old_line.svg');
+	background: url('../images/old_line.svg') 50% 50%;
 	background-repeat: no-repeat;
 	display: inline-block;
 	background-size: cover;
 	color: #2F3035;	
 }
+a.product-card_link {
+	font-size: 2rem;
+}
+.product-card_tabs .tab {
+	font-size: 2rem;
+}
 .product-card_price-new {
 	font-weight: bold;
-	font-size: 40px;
-	line-height: 48px;
-	margin-bottom: 17px;
+	font-size: 4rem;
+	line-height: 4.8rem;
+	margin-bottom: 4%;
 }
 .product-item_link {
 	border-bottom: 1px solid #1c62cd;
@@ -1310,8 +1331,8 @@ button.catalog_filter-btnline {
 }
 .product-card_title {
 	font-weight: bold;
-	font-size: 30px;
-	line-height: 36px;
+	font-size: 3rem;
+	line-height: 3.6rem;
 	font-family: 'SFProDispaly-Bold', sans-serif;
 	margin-bottom: 10px;
 }
@@ -1350,9 +1371,11 @@ button.catalog_filter-btnline {
 }
 .product-card_item-left {
 	padding-right: 15px;
+	font-size: 2rem;
 }
 .product-card_item-right {
 	width: 125px;
+	font-size: 2rem;
 }
 .product-card_more {
 	font-size: 14px;
@@ -1376,7 +1399,7 @@ button.catalog_filter-btnline {
 	border: none;
 }
 .product-card_buttons a + a{
-	margin-left: 30px;
+	margin-left: 10px;
 }
 .product-card-more-cont {
 	margin: 20px 0 40px;
@@ -1387,10 +1410,13 @@ button.catalog_filter-btnline {
 .card_tabs {
 	margin-bottom: 100px;
 }
+.card_tab:not(:last-child) {
+	margin-right: 10px;
+}
 .card_tab-box {
 	background: #F0F0F4;
 	display: flex;
-	justify-content: space-around;
+	/*justify-content: space-around;*/
 	align-items: center;
 	padding: 22px 0;
 	margin-bottom: 50px;
@@ -1407,6 +1433,9 @@ button.catalog_filter-btnline {
 }
 .card_top-line {
 	margin-bottom: 10px;
+	display: flex;
+	flex-wrap: wrap;
+	column-gap: 20px;
 }
 .card_label-search {
 	line-height: 20px;
@@ -1416,13 +1445,10 @@ button.catalog_filter-btnline {
 .card_input-search {
 	background: #F0F0F4;
 	border-radius: 3px;
-	margin-left: 17px;
 	padding: 0 37px 0 17px;
 	border: none;
-	margin-right: 100px;
 }
 .card_label-pickup {
-	margin-left: 54px;
 	font-size: 17px;
 	line-height: 20px;
 	color: rgba(47,48,53,.7);
@@ -1451,6 +1477,7 @@ button.catalog_filter-btnline {
 .workhours {
 	display: flex;
 	justify-content: space-between;
+	max-width: 130px;
 }
 .card_list-available {
 	width: 140px;
@@ -1477,4 +1504,42 @@ button.catalog_filter-btnline {
 	width: 100%;
 	display: flex;
 	justify-content: space-around;
+}
+.product-card_img {
+    max-width: 500px;
+    max-height: 375px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+.card_list-itemtitle {
+	white-space: nowrap;
+}
+.card_list div {
+	min-width: 14%;
+}
+.card_list-mobile {
+	margin-top: 20px;
+	box-shadow: 0 0 3px rgb(0 0 0 / 12%), 0 2px 4px rgb(0 0 0 / 12%);
+	width:  200px;
+}
+.card_list-frame {
+    padding: 5px;
+}
+.card_list-workhours {
+	font-size: 15px;
+}
+.mobile_item-amount {
+	display: flex;
+}
+.mobile_item-availability {
+	margin-right: 10px;
+}
+.mobile_item-address {
+    font-weight: bold;
+    font-size: 19px;
+}
+.card_list-delivery {
+	display: none;
+	gap: 10px;
 }
